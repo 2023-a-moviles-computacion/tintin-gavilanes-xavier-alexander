@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591930091383",
+    "project_id": "a-mov-com-tgxa",
+    "storage_bucket": "a-mov-com-tgxa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591930091383:android:650a3c39740c1bb188e372",
+        "android_client_info": {
+          "package_name": "com.example.movilescomp2023a"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591930091383-h6vbg8g7uifm573qgurt2nq9u2789ram.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk9tBkUSaraRZ3kJJVA7J8WsoQZI8FSq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591930091383-h6vbg8g7uifm573qgurt2nq9u2789ram.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
