@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ACicloVida">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenida"
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="330dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="265dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
