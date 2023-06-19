@@ -1,3 +1,5 @@
+package constructors
+
 class Heladeria {
     var nombre: String =" ";
     var direccion: String  =" ";
@@ -12,4 +14,16 @@ class Heladeria {
         this.calificacion = calificacion
         this.capacidad = capacidad
     }
+
+    override fun toString(): String {
+        return """
+        Heladeria Details:
+        Nombre: $nombre
+        Dirección: $direccion
+        Teléfono: $telefono
+        Calificación: $calificacion
+        Capacidad: $capacidad
+    """.trimIndent()
+    }
+
 }

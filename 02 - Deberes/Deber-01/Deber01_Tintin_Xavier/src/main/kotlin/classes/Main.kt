@@ -1,26 +1,27 @@
+package classes
+
+import constructors.Heladeria
+import constructors.Helados
 import java.io.File
 
 fun main(args: Array<String>) {
     val heladerias = ArrayList<Heladeria>()
     val helados = ArrayList<Helados>()
     val fileManager = FileManager()
-    val pathHeladeria = "/Users/alextintin/Library/CloudStorage/OneDrive-EscuelaPolitécnicaNacional/EPN/7 Semester/Aplicaciones Moviles/tintin-gavilanes-xavier-alexander-mov-com/02 - Deberes/Deber-01/Deber01_Tintin_Xavier/src/main/kotlin/heladeria.txt"
-    val pathHelado = "/Users/alextintin/Library/CloudStorage/OneDrive-EscuelaPolitécnicaNacional/EPN/7 Semester/Aplicaciones Moviles/tintin-gavilanes-xavier-alexander-mov-com/02 - Deberes/Deber-01/Deber01_Tintin_Xavier/src/main/kotlin/helados.txt"
+    val pathHeladeria = "/Users/alextintin/Library/CloudStorage/OneDrive-EscuelaPolitécnicaNacional/EPN/7 Semester/Aplicaciones Moviles/tintin-gavilanes-xavier-alexander-mov-com/02 - Deberes/Deber-01/Deber01_Tintin_Xavier/src/main/kotlin/Outputs/heladeria.txt"
+    val pathHelado = "/Users/alextintin/Library/CloudStorage/OneDrive-EscuelaPolitécnicaNacional/EPN/7 Semester/Aplicaciones Moviles/tintin-gavilanes-xavier-alexander-mov-com/02 - Deberes/Deber-01/Deber01_Tintin_Xavier/src/main/kotlin/Outputs/helados.txt"
 
     while (true) {
         println(
-            "Hola!!\n" +
             "Seleciona una opcion\n" +
             "1: Heladeria\n" +
             "2: Helados\n" +
             "3: Salir"
         )
         print("Ingresa la opción: ")
-        val option = readLine()?.uppercase()
-        when (option) {
+        when (readlnOrNull()?.uppercase()) {
             "1" -> {
                 var flagHeladerias = true
-
                 while (flagHeladerias) {
                     println(
                         "Seleciona la opcion a realizar en la Heladeria\n" +
@@ -28,21 +29,19 @@ fun main(args: Array<String>) {
                                 "2: Listar Heladerias\n" +
                                 "3: Buscar Heladeria\n" +
                                 "4: Eliminar Heladeria\n" +
-
                                 "5: Regresar\n" +
                                 "6: Salir"
                     )
-                    print("Ingresa la opción: ")
-                    var optionHeladerias = readLine()?.uppercase()
-
+                    print("Ingresa la opción: \n")
+                    var optionHeladerias = readlnOrNull()?.uppercase()
                     when (optionHeladerias) {
                         "1" -> {
                             val heladeria = ingresarHeladeria()
                             heladerias.add(heladeria)
-                            println("\nHeladeria agregada exitosamente.\n")
-
-                            val content = heladerias.joinToString("\n") { it.toString() }
+                            println("Heladeria agregada exitosamente.\n")
+                            val content = heladerias.joinToString("\n\n") { it.toString() }
                             fileManager.saveTextFile(fileName = pathHeladeria, content = content)
+
                             println("\nLa lista de heladerias se ha guardado en un archivo de texto.\n")
                         }
                         "2" -> {
@@ -57,7 +56,7 @@ fun main(args: Array<String>) {
                         }
                         "3" -> {
                             print("\nIngresa el nombre de la Heladeria a buscar: ")
-                            val nombreBusqueda = readLine().toString()
+                            val nombreBusqueda = readlnOrNull().toString()
                             val resultadoBusqueda = heladerias.filter { it.nombre.equals(nombreBusqueda, ignoreCase = true) }
                             if (resultadoBusqueda.isNotEmpty()) {
                                 println("\nHeladeria encontrado:")
@@ -73,7 +72,7 @@ fun main(args: Array<String>) {
                         }
                         "4" -> {
                             print("\nIngresa el nombre de la heladeria a eliminar: ")
-                            val nombreEliminacion = readLine().toString()
+                            val nombreEliminacion = readlnOrNull().toString()
                             val resultadoEliminacion = heladerias.removeIf { it.nombre.equals(nombreEliminacion, ignoreCase = true) }
                             if (resultadoEliminacion) {
                                 println("\nHeladeria eliminado exitosamente.\n")
@@ -81,7 +80,6 @@ fun main(args: Array<String>) {
                                 println("\nNo se encontró ningúna heladeria con ese nombre.\n")
                             }
                         }
-
                         "5" -> {
                             flagHeladerias = false
                         }
@@ -95,10 +93,8 @@ fun main(args: Array<String>) {
                     }
                 }
             }
-
             "2" -> {
                 var flagHelados = true
-
                 while (flagHelados) {
                     println(
                         "Seleciona la opcion a realizar en Helados\n" +
@@ -110,8 +106,7 @@ fun main(args: Array<String>) {
                                 "6: Salir"
                     )
                     print("Ingresa la opción: ")
-                    var optionHelados = readLine()?.uppercase()
-
+                    var optionHelados = readlnOrNull()?.uppercase()
                     when (optionHelados) {
                         "1" -> {
                             val helado = ingresarHelado()
@@ -126,28 +121,26 @@ fun main(args: Array<String>) {
                             println("\nListado de Helados:")
                             for (helado in helados) {
                                 println("Nombre: ${helado.nombreHelado}")
-                                println("ID: ${helado.idPlaneta}")
+                                println("ID: ${helado.idHelado}")
                                 println("Sabor 1: ${helado.sabor1}")
                                 println("Sabor 2: ${helado.sabor2}")
                                 println("Precio: ${helado.precio}")
                                 println("Chispas: ${helado.chispas}")
-
                             }
                         }
                         "3" -> {
                             print("\nIngresa el nombre del helado a buscar: ")
-                            val nombreBusqueda = readLine().toString()
+                            val nombreBusqueda = readlnOrNull().toString()
                             val resultadoBusqueda = helados.filter { it.nombreHelado.equals(nombreBusqueda, ignoreCase = true) }
                             if (resultadoBusqueda.isNotEmpty()) {
                                 println("\nHelado encontrado:")
                                 val heladoEncontrado = resultadoBusqueda.first()
                                 println("Nombre: ${heladoEncontrado.nombreHelado}")
-                                println("ID: ${heladoEncontrado.idPlaneta}")
+                                println("ID: ${heladoEncontrado.idHelado}")
                                 println("Sabor 1: ${heladoEncontrado.sabor1}")
                                 println("Sabor 2: ${heladoEncontrado.sabor2}")
                                 println("Precio: ${heladoEncontrado.precio}")
                                 println("Chispas: ${heladoEncontrado.chispas}")
-
                             } else {
                                 println("\nNo se encontró ningún helado con ese nombre.\n")
                             }
@@ -162,7 +155,6 @@ fun main(args: Array<String>) {
                                 println("\nNo se encontró ningún helado con ese nombre.\n")
                             }
                         }
-
                         "5" -> {
                             flagHelados = false
                         }
@@ -176,31 +168,28 @@ fun main(args: Array<String>) {
                     }
                 }
             }
-
             "3" -> {
-                println("¡Gracias!")
+                println("Gracias!")
                 return
             }
-
             else -> {
                 println("Opción inválida seleccionada.")
             }
         }
     }
 }
-
 fun ingresarHeladeria(): Heladeria {
     println("\n--- Ingresar Heladeria ---")
     print("Nombre: ")
-    val nombre = readLine().toString()
+    val nombre = readlnOrNull().toString()
     print("Direccion: ")
-    val direccion = readLine().toString()
+    val direccion = readlnOrNull().toString()
     print("Telefono: ")
-    val telefono = readLine().toString()
+    val telefono = readlnOrNull().toString()
     print("Calificacion: ")
-    val calificacion = readLine()?.toDouble()
+    val calificacion = readlnOrNull()?.toDouble()
     print("Capacidad: ")
-    val capacidad = readLine()?.toInt()
+    val capacidad = readlnOrNull()?.toInt()
 
     return Heladeria( nombre, direccion, telefono, calificacion?: 0.0, capacidad?: 0.0)
 }
@@ -208,28 +197,25 @@ fun ingresarHeladeria(): Heladeria {
 fun ingresarHelado(): Helados {
     println("\n--- Ingresar Helado ---")
     print("ID del Helado: ")
-    val idHelado = readLine().toString()
+    val idHelado = readlnOrNull()?.toInt()
     print("Nombre del Helado: ")
-    val nombreHelado = readLine().toString()
+    val nombreHelado = readlnOrNull().toString()
     print("Primer Sabor: ")
-    val sabor1 = readLine().toString()
+    val sabor1 = readlnOrNull().toString()
     print("Segundo Sabor: ")
-    val sabor2 = readLine().toString()
+    val sabor2 = readlnOrNull().toString()
     print("Precio: ")
-    val precio = readLine()?.toDouble()
+    val precio = readlnOrNull()?.toDouble()
     print("Chispas: ")
-    val chispas = readLine()?.toInt()
-    return Helados (idHelado, nombreHelado, sabor1, sabor2, precio ?: 0.0, chispas?: 0.0)
+    val chispas = readlnOrNull()?.toInt()
+
+    return Helados (idHelado?: 0.0, nombreHelado, sabor1, sabor2, precio ?: 0.0, chispas?: 0.0)
 }
-
-
-
 class FileManager {
     fun saveTextFile(fileName: String, content: String) {
         val file = File(fileName)
         file.writeText(content)
     }
-
     fun readTextFile(fileName: String): String {
         val file = File(fileName)
         return file.readText()

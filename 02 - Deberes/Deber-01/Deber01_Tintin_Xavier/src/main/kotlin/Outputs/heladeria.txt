@@ -1,0 +1,13 @@
+Heladeria Details:
+Nombre: 2
+Dirección: 2
+Teléfono: 1
+Calificación: 1.0
+Capacidad: 1
+
+Heladeria Details:
+Nombre: 1
+Dirección: 1
+Teléfono: 1
+Calificación: 2.0
+Capacidad: 1
