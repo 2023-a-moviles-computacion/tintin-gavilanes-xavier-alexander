@@ -4,8 +4,8 @@ fun main(args: Array<String>) {
     val heladerias = ArrayList<Heladeria>()
     val helados = ArrayList<Helados>()
     val fileManager = FileManager()
-//    val pathSistemaSolar = "C://Users//escritorio.virtual9//Documents//GitHub//mov-com-2023A//herrera-mosquera-elisa-andrea-mov-com//Deber01//src//main//kotlin//SistemaSolar"
-//    val pathPlaneta = "C://Users//escritorio.virtual9//Documents//GitHub//mov-com-2023A//herrera-mosquera-elisa-andrea-mov-com//Deber01//src//main//kotlin//Planetas"
+    val pathHeladeria = "/Users/alextintin/Library/CloudStorage/OneDrive-EscuelaPolitécnicaNacional/EPN/7 Semester/Aplicaciones Moviles/tintin-gavilanes-xavier-alexander-mov-com/02 - Deberes/Deber-01/Deber01_Tintin_Xavier/src/main/kotlin/heladeria.txt"
+    val pathHelado = "/Users/alextintin/Library/CloudStorage/OneDrive-EscuelaPolitécnicaNacional/EPN/7 Semester/Aplicaciones Moviles/tintin-gavilanes-xavier-alexander-mov-com/02 - Deberes/Deber-01/Deber01_Tintin_Xavier/src/main/kotlin/helados.txt"
 
     while (true) {
         println(
@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
                             println("\nHeladeria agregada exitosamente.\n")
 
                             val content = heladerias.joinToString("\n") { it.toString() }
-                            fileManager.saveTextFile(fileName = pathSistemaSolar+"$heladeria.txt", content = content)
+                            fileManager.saveTextFile(fileName = pathHeladeria, content = content)
                             println("\nLa lista de heladerias se ha guardado en un archivo de texto.\n")
                         }
                         "2" -> {
@@ -119,7 +119,7 @@ fun main(args: Array<String>) {
                             println("\nHelado agregado exitosamente.\n")
 
                             val content = helados.joinToString("\n") { it.toString() }
-                            fileManager.saveTextFile(fileName = pathPlaneta+"$helado.txt", content = content)
+                            fileManager.saveTextFile(fileName = pathHelado, content = content)
                             println("\nLa lista de healdos se ha guardado en un archivo de texto.\n")
                         }
                         "2" -> {
