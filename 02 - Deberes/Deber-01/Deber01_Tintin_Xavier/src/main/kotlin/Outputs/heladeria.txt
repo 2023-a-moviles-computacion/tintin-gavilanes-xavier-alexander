@@ -1,6 +1,13 @@
 Heladeria Details:
-Nombre: Eli
-Dirección: Sur
-Teléfono: 666
-Calificación: 0.0
-Capacidad: 10
+Nombre: Primero
+Dirección: Quito
+Teléfono: 345678
+Calificación: 10.0
+Capacidad: 8
+
+Heladeria Details:
+Nombre: Segunfo
+Dirección: Cuenca
+Teléfono: 6789
+Calificación: 9.0
+Capacidad: 70

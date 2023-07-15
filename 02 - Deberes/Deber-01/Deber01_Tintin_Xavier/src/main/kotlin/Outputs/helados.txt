@@ -1,0 +1,7 @@
+Helado Details:
+ID Helado: 1
+Nombre del Helado: Choco Crazy
+Sabor 1: Chocolate
+Sabor 2: Oreo
+Precio: 0.9
+Chispas: 1
